@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David &amp; Mary — #DMLOV2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Mrs+Saint+Delafield&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --cream:#faf5ec;
+    --cream-2:#f2e9d8;
+    --beige:#e9dcc0;
+    --coffee-light:#a97d4f;
+    --coffee:#6f4a2e;
+    --coffee-deep:#3a2416;
+    --espresso:#241209;
+    --gold:#c19a5b;
+    --gold-soft:#e0c284;
+    --ink:#3b2a1e;
+    --line: rgba(111,74,46,0.25);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Cormorant Garamond', serif;
+    font-size:19px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Playfair Display', serif;
+    color:var(--coffee-deep);
+    margin:0;
+  }
+  .script{
+    font-family:'Mrs Saint Delafield', cursive;
+    color:var(--gold);
+    line-height:1;
+  }
+  .eyebrow{
+    font-family:'Jost', sans-serif;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--coffee-light);
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- decorative rule ---------- */
+  .ring-divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:38px 0;}
+  .ring-divider::before,.ring-divider::after{content:"";flex:1;max-width:140px;height:1px;background:linear-gradient(90deg, transparent, var(--gold), transparent);}
+  .ring-divider svg{width:34px;height:20px;flex-shrink:0;}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,245,236,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1000px;margin:0 auto;padding:14px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .monogram{
+    font-family:'Playfair Display', serif;font-weight:600;font-size:19px;color:var(--coffee-deep);
+    display:flex;align-items:center;gap:8px;
+  }
+  .monogram span.amp{color:var(--gold);font-family:'Mrs Saint Delafield',cursive;font-size:24px;}
+  .nav-links{display:flex;gap:22px;font-family:'Jost',sans-serif;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;}
+  .nav-links a{text-decoration:none;color:var(--coffee);opacity:.8;padding-bottom:3px;border-bottom:1px solid transparent;transition:.25s;}
+  .nav-links a:hover{opacity:1;border-color:var(--gold);}
+  .nav-tag{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.12em;color:var(--gold);}
+  @media (max-width:720px){ .nav-links{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;min-height:100svh;display:flex;align-items:flex-end;
+    background:linear-gradient(180deg, rgba(36,18,9,0.15) 0%, rgba(36,18,9,0.35) 55%, rgba(36,18,9,0.92) 100%), url('images/couple-white.jpg') center 20%/cover no-repeat;
+  }
+  .hero-content{
+    width:100%;padding:60px 28px 46px;max-width:1000px;margin:0 auto;
+    color:var(--cream);text-align:center;
+  }
+  .hero-eyebrow{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;}
+  .hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#e9dcc4;max-width:440px;margin:0 auto 22px;}
+  .hero-names{
+    font-family:'Playfair Display',serif;font-weight:600;
+    font-size:clamp(38px,7vw,68px);
+    color:#fbf3e3;
+    letter-spacing:.01em;
+  }
+  .hero-names .amp{font-family:'Mrs Saint Delafield',cursive;color:var(--gold);font-size:0.75em;margin:0 14px;}
+  .hero-tagline{margin-top:20px;font-family:'Jost',sans-serif;letter-spacing:.28em;font-size:13px;color:var(--gold-soft);}
+  .hero-scroll{margin-top:34px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.2em;color:#cbb98d;text-transform:uppercase;}
+  .hero-scroll::after{content:"";display:block;width:1px;height:34px;background:var(--gold);margin:10px auto 0;animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%,100%{opacity:.25;}50%{opacity:1;}}
+
+  /* ---------- sections generic ---------- */
+  section{padding:86px 0;}
+  .section-beige{background:var(--beige);}
+  .section-cream{background:var(--cream);}
+  .heading{text-align:center;margin-bottom:52px;}
+  .heading .script{font-size:44px;display:block;margin-bottom:4px;}
+  .heading .eyebrow{display:block;margin-bottom:10px;}
+  .heading p.lede{max-width:520px;margin:14px auto 0;color:var(--coffee);font-style:italic;}
+
+  /* ---------- date & venue ---------- */
+  .dv-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  @media (max-width:680px){.dv-grid{grid-template-columns:1fr;}}
+  .dv-card{
+    background:var(--cream);border:1px solid var(--line);border-radius:6px;
+    padding:38px 30px;text-align:center;position:relative;
+  }
+  .dv-card::before{content:"";position:absolute;inset:8px;border:1px solid var(--gold-soft);border-radius:3px;pointer-events:none;}
+  .dv-icon{width:36px;height:36px;margin:0 auto 16px;color:var(--gold);}
+  .dv-card h3{font-size:15px;font-family:'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--coffee-light);margin-bottom:14px;}
+  .dv-big{font-family:'Playfair Display',serif;font-size:30px;color:var(--coffee-deep);}
+  .dv-small{color:var(--coffee);margin-top:6px;font-size:16px;}
+  .dv-time{display:inline-block;margin-top:14px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.1em;color:var(--espresso);background:var(--gold-soft);padding:6px 16px;border-radius:20px;}
+
+  /* ---------- ministers ---------- */
+  .min-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 30px;max-width:780px;margin:0 auto;}
+  @media (max-width:600px){.min-grid{grid-template-columns:1fr;}}
+  .min-item{display:flex;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line);}
+  .min-num{font-family:'Playfair Display',serif;color:var(--gold);font-size:14px;min-width:20px;}
+  .min-name{font-family:'Jost',sans-serif;font-size:15px;letter-spacing:.02em;color:var(--coffee-deep);}
+
+  /* ---------- order of service timeline ---------- */
+  .timeline{max-width:700px;margin:0 auto;position:relative;}
+  .timeline::before{content:"";position:absolute;left:20px;top:6px;bottom:6px;width:1px;background:linear-gradient(var(--gold-soft),var(--coffee-light));}
+  .t-item{position:relative;padding-left:56px;margin-bottom:26px;}
+  .t-num{
+    position:absolute;left:0;top:0;width:41px;height:41px;border-radius:50%;
+    background:var(--cream);border:1px solid var(--gold);color:var(--coffee-deep);
+    display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:15px;
+  }
+  .t-title{font-family:'Jost',sans-serif;font-size:16.5px;color:var(--coffee-deep);letter-spacing:.01em;}
+  .t-sub{color:var(--coffee);font-size:15px;margin-top:2px;font-style:italic;}
+
+  .lyric-card{
+    margin:16px 0 0 0;background:linear-gradient(160deg,var(--espresso),var(--coffee-deep));
+    color:#efe3cc;border-radius:8px;padding:26px 26px;position:relative;overflow:hidden;
+  }
+  .lyric-card::after{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;border:1px solid rgba(193,154,91,0.3);border-radius:50%;}
+  .lyric-card h4{font-family:'Mrs Saint Delafield',cursive;color:var(--gold-soft);font-size:26px;margin:0 0 12px;}
+  .lyric-block{margin-bottom:14px;}
+  .lyric-block b{display:block;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+  .lyric-block p{margin:0;font-size:16px;line-height:1.55;color:#e9dcc4;}
+
+  /* ---------- photography ---------- */
+  .photo-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;}
+  @media (max-width:720px){.photo-grid{grid-template-columns:1fr;}}
+  .photo-list{list-style:none;margin:0;padding:0;counter-reset:po;}
+  .photo-list li{counter-increment:po;padding:8px 0 8px 34px;position:relative;font-family:'Jost',sans-serif;font-size:15px;color:var(--coffee-deep);border-bottom:1px solid var(--line);}
+  .photo-list li::before{content:counter(po);position:absolute;left:0;top:8px;color:var(--gold);font-family:'Playfair Display',serif;font-size:14px;}
+  .exclusives h3{font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--coffee-light);margin-bottom:16px;}
+  .pill-list{display:flex;flex-wrap:wrap;gap:10px;}
+  .pill{
+    font-family:'Jost',sans-serif;font-size:13px;color:var(--espresso);
+    background:var(--gold-soft);padding:8px 16px;border-radius:20px;border:1px solid var(--gold);
+  }
+
+  /* ---------- reception ---------- */
+  .reception-list{max-width:560px;margin:0 auto;list-style:none;padding:0;counter-reset:rp;}
+  .reception-list li{
+    counter-increment:rp;display:flex;align-items:center;gap:16px;
+    padding:12px 4px;border-bottom:1px dotted var(--line);
+  }
+  .reception-list li::before{
+    content:counter(rp,decimal-leading-zero);font-family:'Jost',sans-serif;font-size:12px;color:var(--gold);
+    border:1px solid var(--gold);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .reception-list span{font-family:'Jost',sans-serif;font-size:15.5px;color:var(--coffee-deep);}
+
+  /* ---------- appreciation ---------- */
+  .appreciation{
+    max-width:640px;margin:0 auto;text-align:center;
+  }
+  .app-photo{
+    width:110px;height:110px;border-radius:50%;object-fit:cover;margin:0 auto 22px;
+    border:3px solid var(--cream);box-shadow:0 0 0 1px var(--gold);
+  }
+  .app-card{
+    background:linear-gradient(160deg,var(--espresso),var(--coffee-deep));
+    color:#e9dcc4;border-radius:10px;padding:44px 36px;
+  }
+  .app-card p{margin:0 0 16px;font-size:18px;font-style:italic;}
+  .app-sign{margin-top:22px;font-family:'Mrs Saint Delafield',cursive;color:var(--gold-soft);font-size:32px;}
+
+  /* ---------- full image band ---------- */
+  .imgband{position:relative;}
+  .imgband img{width:100%;height:78vh;object-fit:cover;object-position:center 25%;}
+  .imgband .cap{
+    position:absolute;bottom:22px;left:0;right:0;text-align:center;
+    font-family:'Jost',sans-serif;letter-spacing:.3em;font-size:11px;text-transform:uppercase;color:#f2e9d8;
+  }
+
+  /* ---------- hashtag statement ---------- */
+  .statement{
+    background:var(--espresso);color:var(--cream);text-align:center;padding:100px 20px;
+  }
+  .statement .script{font-size:20px;display:block;margin-bottom:14px;color:var(--gold-soft);}
+  .statement h2{
+    font-size:clamp(40px,9vw,92px);color:#fbf3e3;letter-spacing:.02em;
+  }
+  .statement .sub{margin-top:16px;color:#cbb98d;font-family:'Jost',sans-serif;letter-spacing:.15em;font-size:12px;text-transform:uppercase;}
+
+  /* ---------- RSVP / login ---------- */
+  .rsvp-box{max-width:520px;margin:0 auto;background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:44px 38px;}
+  .field{margin-bottom:20px;text-align:left;}
+  .field label{display:block;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--coffee-light);margin-bottom:7px;}
+  .field input{
+    width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:5px;background:#fffefb;
+    font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--ink);
+  }
+  .field input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(193,154,91,0.18);}
+  .field small{display:block;margin-top:5px;color:var(--coffee-light);font-family:'Jost',sans-serif;font-size:11px;}
+  .field.err input{border-color:#a5453a;}
+  .field .err-msg{color:#a5453a;font-family:'Jost',sans-serif;font-size:11.5px;margin-top:5px;display:none;}
+  .field.err .err-msg{display:block;}
+  .rsvp-btn{
+    width:100%;padding:14px;border:none;border-radius:30px;cursor:pointer;
+    background:linear-gradient(90deg,var(--coffee),var(--coffee-light));color:#fdf6e8;
+    font-family:'Jost',sans-serif;letter-spacing:.15em;text-transform:uppercase;font-size:13px;
+    transition:.25s;
+  }
+  .rsvp-btn:hover{filter:brightness(1.08);}
+  .rsvp-thanks{display:none;text-align:center;padding:20px 0;}
+  .rsvp-thanks .script{font-size:34px;}
+  .rsvp-thanks p{color:var(--coffee);}
+
+  /* ---------- QR ---------- */
+  .qr-wrap{text-align:center;}
+  #qrcode{display:inline-block;padding:18px;background:#fff;border-radius:10px;border:1px solid var(--line);}
+  .qr-wrap p.cap{margin-top:16px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.1em;color:var(--coffee);text-transform:uppercase;}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--espresso);color:#b79f7c;text-align:center;padding:34px 20px;
+    font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.06em;
+  }
+  footer .fmono{color:var(--gold-soft);font-family:'Playfair Display',serif;font-size:14px;display:block;margin-bottom:6px;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="monogram">D<span class="amp">&amp;</span>M</div>
+    <div class="nav-links">
+      <a href="#details">Details</a>
+      <a href="#ministers">Ministers</a>
+      <a href="#service">Order of Service</a>
+      <a href="#photography">Photography</a>
+      <a href="#reception">Reception</a>
+      <a href="#rsvp">RSVP</a>
+    </div>
+    <div class="nav-tag">#DMLOV2026</div>
+  </div>
+</nav>
+
+<!-- 1. HERO / WELCOME -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Welcome to the Solemnization of Holy Matrimony Between</div>
+    <div class="hero-names">David K. Gyaha <span class="amp">&amp;</span> Mary N. Owiredu</div>
+    <p class="hero-sub">Two hearts, one covenant — join us as we celebrate a love rooted in grace.</p>
+    <div class="hero-tagline">#DMLOV2026</div>
+    <div class="hero-scroll">Scroll to view the programme</div>
+  </div>
+</header>
+
+<!-- 2. DATE & VENUE -->
+<section class="section-cream" id="details">
+  <div class="wrap">
+    <div class="heading">
+      <span class="eyebrow">Save the Date</span>
+      <span class="script">The Details</span>
+    </div>
+    <div class="dv-grid">
+      <div class="dv-card">
+        <svg class="dv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <h3>Date &amp; Time</h3>
+        <div class="dv-big">29<sup>th</sup> August 2026</div>
+        <div class="dv-small">A Saturday to remember</div>
+        <span class="dv-time">11:30 AM Prompt</span>
+      </div>
+      <div class="dv-card">
+        <svg class="dv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21s7-7.1 7-12a7 7 0 10-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg>
+        <h3>Venue</h3>
+        <div class="dv-big" style="font-size:22px;">Grace Hill Pentecostal Ministry</div>
+        <div class="dv-small">Asamankese — Adom Worship Centre</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. OFFICIATING MINISTERS -->
+<section class="section-beige" id="ministers">
+  <div class="wrap">
+    <div class="heading">
+      <span class="eyebrow">Servants of the Most High</span>
+      <span class="script">Officiating Ministers</span>
+    </div>
+    <div class="min-grid">
+      <div class="min-item"><span class="min-num">01</span><span class="min-name">Ps. Benjamin Ansah</span></div>
+      <div class="min-item"><span class="min-num">02</span><span class="min-name">Ps. Charles Kuwonu</span></div>
+      <div class="min-item"><span class="min-num">03</span><span class="min-name">Ps. Francis Kadam</span></div>
+      <div class="min-item"><span class="min-num">04</span><span class="min-name">Ps. J.O. Acheampong</span></div>
+      <div class="min-item"><span class="min-num">05</span><span class="min-name">Ovr. Eric Gagba</span></div>
+      <div class="min-item"><span class="min-num">06</span><span class="min-name">Cat. Padmon Oppong</span></div>
+      <div class="min-item"><span class="min-num">07</span><span class="min-name">Pastor Francis Debrah</span></div>
+      <div class="min-item"><span class="min-num">08</span><span class="min-name">Rev. George Kofi Osei &amp; Wife Mrs.</span></div>
+      <div class="min-item"><span class="min-num">09</span><span class="min-name">Rev. Robert Duodu</span></div>
+      <div class="min-item"><span class="min-num">10</span><span class="min-name">Catechist Samuel Gya</span></div>
+      <div class="min-item"><span class="min-num">11</span><span class="min-name">Pst. Livingston Arkoh</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ORDER OF SERVICE -->
+<section class="section-cream" id="service">
+  <div class="wrap">
+    <div class="heading">
+      <span class="eyebrow">In His Presence</span>
+      <span class="script">Order of Service</span>
+    </div>
+    <div class="timeline">
+      <div class="t-item"><div class="t-num">1</div><div class="t-title">Opening Prayer</div><div class="t-sub">Bro Obed Asante</div></div>
+      <div class="t-item"><div class="t-num">2</div><div class="t-title">Praises</div></div>
+      <div class="t-item"><div class="t-num">3</div><div class="t-title">Purpose of Meeting</div><div class="t-sub">Ovr. Eric Gagba</div></div>
+      <div class="t-item">
+        <div class="t-num">4</div>
+        <div class="t-title">Couple Procession — Gyataburuwa</div>
+        <div class="lyric-card">
+          <h4>Gyataburuwa</h4>
+          <div class="lyric-block"><b>Verse 1</b><p>Mɛhyira Awurade daa nyinaa<br>N'ayeyi wɔ m'anum daa yi<br>Me kra bɛhoa ne ho wɔ Awurade mu</p></div>
+          <div class="lyric-block"><b>Pre-Chorus</b><p>Gyataburuwaa bɛdi hia<br>Nanso nnepa biara nhia<br>Wɔn a wɔhwehwɛ Awurade, suro Awurade<br>Gyataburuwaa bɛdi hia<br>Nanso nnepa biara nhia<br>Wɔn a wɔhwehwɛ Awurade, suro Awurade</p></div>
+          <div class="lyric-block"><b>Chorus</b><p>Wo ne me nkamfo Awurade ne kɛseyɛ<br>Momma yɛmmɔm' mma ne din so, yɛnyi N'ayɛ<br>Mahwehwɛ Awurade na Wabua me<br>Nyame abɔfo bɔ wɔn a wɔsom No nsrabanm' hyia<br>Monka nhwɛ na monhunu sɛ Awurade ye</p></div>
+        </div>
+      </div>
+      <div class="t-item"><div class="t-num">5</div><div class="t-title">Introduction</div><div class="t-sub">By the Conductor</div></div>
+      <div class="t-item"><div class="t-num">6</div><div class="t-title">Scripture Reading</div><div class="t-sub">Songs of Solomon 1:13–16 — English: Eld. Bismark Ansah · Twi: Dns. Mary Okyerebea</div></div>
+      <div class="t-item"><div class="t-num">7</div><div class="t-title">Worship</div><div class="t-sub">Mrs Salomey Gagba</div></div>
+      <div class="t-item"><div class="t-num">8</div><div class="t-title">Offering</div></div>
+      <div class="t-item"><div class="t-num">9</div><div class="t-title">Marriage Vows &amp; Blessings</div><div class="t-sub">Ps. Benjamin Ansah</div></div>
+      <div class="t-item"><div class="t-num">10</div><div class="t-title">Signing of Certificate</div></div>
+      <div class="t-item"><div class="t-num">11</div><div class="t-title">Sermon</div><div class="t-sub">Ps. Jo Acheampong</div></div>
+      <div class="t-item"><div class="t-num">12</div><div class="t-title">Song Ministration</div></div>
+      <div class="t-item"><div class="t-num">13</div><div class="t-title">Offering for the Couple</div><div class="t-sub">Ovr. Francis Kadam</div></div>
+      <div class="t-item"><div class="t-num">14</div><div class="t-title">Presentation of Certificate</div><div class="t-sub">Mrs. Ellen Kuwonu</div></div>
+      <div class="t-item"><div class="t-num">15</div><div class="t-title">Couple Response</div></div>
+      <div class="t-item"><div class="t-num">16</div><div class="t-title">Announcement</div><div class="t-sub">Secretary</div></div>
+      <div class="t-item"><div class="t-num">17</div><div class="t-title">Benediction</div><div class="t-sub">Ps. Benjamin Ansah</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. ORDER OF PHOTOGRAPHY -->
+<section class="section-beige" id="photography">
+  <div class="wrap">
+    <div class="heading">
+      <span class="eyebrow">Capturing the Moment</span>
+      <span class="script">Order of Photography</span>
+    </div>
+    <div class="photo-grid">
+      <ol class="photo-list">
+        <li>All Ministers in Attendance</li>
+        <li>Special Guest of Honours and Councillors</li>
+        <li>Groom's Parents</li>
+        <li>Groom's Family</li>
+        <li>Bride and Groom's Parents</li>
+        <li>Bride's Parents</li>
+        <li>Bride's Family</li>
+        <li>Both Families</li>
+        <li>Members</li>
+        <li>Friends of the Groom</li>
+        <li>Friends of the Bride</li>
+        <li>Groom's Work Colleagues</li>
+        <li>Former Classmates of the Groom/Bride</li>
+        <li>Groomsmen</li>
+        <li>Bridesmaids</li>
+        <li>Both</li>
+      </ol>
+      <div class="exclusives">
+        <h3>Exclusives</h3>
+        <div class="pill-list">
+          <span class="pill">Bride &amp; Groom</span>
+          <span class="pill">Bride Only</span>
+          <span class="pill">Groom Only</span>
+          <span class="pill">Groom &amp; Groomsman</span>
+          <span class="pill">Groom &amp; Bridesmaids</span>
+          <span class="pill">Bride &amp; Groomsman</span>
+          <span class="pill">Bride &amp; Bridesmaids</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. RECEPTION PROGRAM -->
+<section class="section-cream" id="reception">
+  <div class="wrap">
+    <div class="heading">
+      <span class="eyebrow">The Celebration Continues</span>
+      <span class="script">Reception Program</span>
+    </div>
+    <ol class="reception-list">
+      <li><span>Arrival</span></li>
+      <li><span>Introduction of Guests</span></li>
+      <li><span>Bride's Parents and Family Entrance</span></li>
+      <li><span>Groom's Parents and Family</span></li>
+      <li><span>Entrance of Couple with Their Train</span></li>
+      <li><span>Opening Prayer</span></li>
+      <li><span>Chairman's Opening Remark</span></li>
+      <li><span>Couple Dance</span></li>
+      <li><span>Bridesmaids/Groomsmen Dance</span></li>
+      <li><span>Cutting of Cake</span></li>
+      <li><span>Toast</span></li>
+      <li><span>Refreshment / Dance</span></li>
+      <li><span>Chairman's Closing Remark</span></li>
+      <li><span>Closing Prayer</span></li>
+      <li><span>Dance, Dance, Dance</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7. APPRECIATION -->
+<section class="section-beige">
+  <div class="wrap">
+    <div class="heading">
+      <span class="eyebrow">With Grateful Hearts</span>
+      <span class="script">Appreciation</span>
+    </div>
+    <div class="appreciation">
+      <img class="app-photo" src="images/couple-kente.jpg" alt="David and Mary">
+      <div class="app-card">
+        <p>We bestow our sincere gratitude to Almighty God for His Divine favour.</p>
+        <p>We also express our kind gratitude to each and everyone who have, in diverse ways, contributed to the success of this blessed union.</p>
+        <p>We appreciate everyone's prayers, guidance, presence and support.</p>
+        <p>May the good Lord bless you all.</p>
+        <div class="app-sign">David &amp; Mary</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. SECOND IMAGE -->
+<div class="imgband">
+  <img src="images/couple-kente.jpg" alt="David and Mary in traditional attire">
+  <div class="cap">Two Families, One Love</div>
+</div>
+
+<!-- 9. #DMLOV2026 STATEMENT -->
+<section class="statement">
+  <span class="script">forever begins on</span>
+  <h2>#DMLOV2026</h2>
+  <div class="sub">David Weds Mary · 29th August 2026</div>
+</section>
+
+<!-- RSVP / LOGIN -->
+<section class="section-cream" id="rsvp">
+  <div class="wrap">
+    <div class="heading">
+      <span class="eyebrow">You're Invited</span>
+      <span class="script">Confirm Your Presence</span>
+      <p class="lede">Kindly sign in below so we know who's joining us for this celebration of love.</p>
+    </div>
+    <div class="rsvp-box">
+      <form id="rsvpForm" novalidate>
+        <div class="field" id="f-name">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="e.g. Efya Whyte" required>
+          <div class="err-msg">Please enter your name.</div>
+        </div>
+        <div class="field" id="f-email">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="e.g. efya@example.com" required>
+          <div class="err-msg">Please enter a valid email address.</div>
+        </div>
+        <div class="field" id="f-contact">
+          <label for="contact">Contact Number</label>
+          <input type="tel" id="contact" placeholder="e.g. 0244000000" maxlength="10" inputmode="numeric" required>
+          <small>Numbers only — maximum 10 digits.</small>
+          <div class="err-msg">Contact must be numeric and no more than 10 digits.</div>
+        </div>
+        <div class="field" id="f-location">
+          <label for="location">Location</label>
+          <input type="text" id="location" placeholder="e.g. Dansoman, Accra" required>
+          <div class="err-msg">Please enter your location.</div>
+        </div>
+        <button type="submit" class="rsvp-btn">Confirm My Presence</button>
+      </form>
+      <div class="rsvp-thanks" id="rsvpThanks">
+        <span class="script">Thank You</span>
+        <p>We can't wait to celebrate with you, <b id="thanksName"></b>. See you on 29th August 2026!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QR CODE -->
+<section class="section-beige">
+  <div class="wrap qr-wrap">
+    <div class="heading">
+      <span class="eyebrow">Share the Invitation</span>
+      <span class="script">Scan to Open</span>
+      <p class="lede">Share this code with family and friends so they can view the full programme on their own phone — no printing required.</p>
+    </div>
+    <div id="qrcode"></div>
+    <p class="cap">#DMLOV2026</p>
+  </div>
+</section>
+
+<footer>
+  <span class="fmono">David &amp; Mary</span>
+  &copy; David Weds Mary 2026 — Developed by EqualTec Lab
+</footer>
+
+<script>
+  // QR code — encodes the live URL of this page so it can be scanned to reopen it
+  try{
+    new QRCode(document.getElementById("qrcode"), {
+      text: window.location.href.split('#')[0] || "https://dmlov2026.wedding",
+      width: 176,
+      height: 176,
+      colorDark: "#3a2416",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.M
+    });
+  }catch(e){
+    document.getElementById("qrcode").innerHTML = "<p style='font-family:Jost,sans-serif;font-size:12px;color:#a5453a;'>QR code unavailable offline.</p>";
+  }
+
+  // RSVP form validation
+  const form = document.getElementById('rsvpForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    let valid = true;
+
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const contact = document.getElementById('contact');
+    const location = document.getElementById('location');
+
+    function setError(fieldId, condition){
+      const el = document.getElementById(fieldId);
+      if(condition){ el.classList.add('err'); valid = false; }
+      else{ el.classList.remove('err'); }
+    }
+
+    setError('f-name', name.value.trim().length < 2);
+    setError('f-email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()));
+    setError('f-contact', !/^[0-9]{6,10}$/.test(contact.value.trim()));
+    setError('f-location', location.value.trim().length < 2);
+
+    if(valid){
+      document.getElementById('thanksName').textContent = name.value.trim();
+      form.style.display = 'none';
+      document.getElementById('rsvpThanks').style.display = 'block';
+    }
+  });
+
+  // contact field: digits only, hard cap 10
+  document.getElementById('contact').addEventListener('input', function(e){
+    e.target.value = e.target.value.replace(/\D/g,'').slice(0,10);
+  });
+</script>
+
+</body>
+</html>

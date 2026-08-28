@@ -1,1 +1,1 @@
-Davide weds Mary
+David weds Mary
